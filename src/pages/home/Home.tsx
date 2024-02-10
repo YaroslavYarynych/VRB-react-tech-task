@@ -27,7 +27,13 @@ export const Home: React.FC = () => {
         "https://newsapi.org/v2/everything?domains=techcrunch.com&page=1&pageSize=10&apiKey=07bbb3b1f9c648cca7df57d1ebe6e7f6"
       )
         .then((res) => res.json())
-        .then((data) => dispatch(setData(data.articles)))
+        .then((data) => {
+          if (data.articles) {
+            dispatch(setData(data.articles));
+          } else {
+            dispatch(setData([]));
+          }
+        })
         .catch((error) =>
           console.log(`${error}! You have an error in fetching data`)
         );
@@ -57,8 +63,6 @@ export const Home: React.FC = () => {
       return item;
     }
   });
-
-  console.log(data);
 
   return (
     <div className="container">
