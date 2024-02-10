@@ -1,0 +1,26 @@
+@import "../../utils//ui-kit/colors.scss";
+@import "../../utils//ui-kit/mixins.scss";
+
+.home {
+  &-basic__container {
+    display: grid;
+    width: 100%;
+    max-width: 1200px;
+    margin: 25px auto;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(1, 100%);
+    width: 100%;
+    margin: 20px auto;
+    row-gap: 20px;
+
+    @include onTablet() {
+      grid-template-columns: repeat(2, 50%);
+    }
+    @include onDesktop() {
+      grid-template-columns: repeat(3, 33%);
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@import "../../utils//ui-kit/colors.scss";
+@import "../../utils//ui-kit/mixins.scss";
+
+.link__btn {
+  margin: 0 10px;
+  @include button;
+  @include onTablet {
+    margin: 0 20px;
+  }
+}

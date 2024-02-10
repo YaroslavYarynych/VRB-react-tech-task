@@ -1,0 +1,16 @@
+@import "../../utils/ui-kit/mixins.scss";
+@import "../../utils/ui-kit/colors.scss";
+
+.article-container {
+  height: 70vh;
+  padding: 0;
+  margin: 30px auto;
+  background-color: transparent;
+  border-radius: 0;
+  position: relative;
+  top: 0;
+  left: 0;
+  @include onTablet {
+    margin: 70px auto;
+  }
+}

@@ -1,0 +1,43 @@
+@import "../../../../utils//ui-kit/colors.scss";
+@import "../../../../utils//ui-kit/mixins.scss";
+
+.home {
+  &-input__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10px;
+    height: 70px;
+    @media (min-width: 650px) {
+      padding: 20px;
+    }
+    @media (min-width: 992px) {
+      padding: 20px 40px;
+    }
+  }
+}
+
+#home-input__search {
+  display: block;
+  outline: 0;
+  border: 2px solid $primary-green;
+  width: 180px;
+  height: 50%;
+  border-radius: 15px;
+  font-size: 12px;
+  padding: 12px;
+  background-color: $article-bg-color;
+  @include onTablet() {
+    width: 400px;
+    font-size: 16px;
+    padding: 20px;
+  }
+
+  &:focus {
+    border: 2px solid $secondary-green;
+  }
+
+  &:focus::placeholder {
+    color: $default-black-color;
+  }
+}

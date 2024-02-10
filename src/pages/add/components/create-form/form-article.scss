@@ -1,0 +1,82 @@
+@import "../../../../utils/ui-kit/mixins.scss";
+@import "../../../../utils/ui-kit/colors.scss";
+
+.form {
+  flex-direction: column;
+  height: 100%;
+  margin: 0 auto;
+  gap: 20px;
+  padding: 20px;
+  @include defaultCenteringBlockWithFlex();
+
+  &__arrow {
+    background-color: transparent;
+    outline: 0;
+    color: $default-gray-color;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 20px;
+    right: 25%;
+    cursor: pointer;
+    @include onTablet {
+      width: 50px;
+      height: 50px;
+      top: -10px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 50%;
+  }
+
+  &__input {
+    border-bottom: 2px solid $default-gray-color;
+
+    @include form-input-styles;
+    &::placeholder {
+      color: transparent;
+    }
+
+    &:placeholder-shown ~ .form__label {
+      font-size: 1rem;
+      cursor: text;
+      top: 20px;
+      @media (min-width: 640px) {
+        font-size: 1.3em;
+      }
+    }
+  }
+}
+
+.form__input:focus {
+  @include form-input-focus;
+  &::placeholder {
+    color: #fff;
+  }
+
+  ~ .form__label {
+    top: 0;
+    @include form-label-focus;
+  }
+}
+
+.form__input:focus:required,
+.form__input:focus:invalid {
+  box-shadow: none;
+}
+
+.form__label {
+  top: 0px;
+  @include form-label;
+}
+
+p[role="alert"] {
+  color: rgb(196, 0, 0);
+}
