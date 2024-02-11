@@ -1,6 +1,6 @@
 # VRB Technical task
 
-It is a simple, user-friendly app where you can interact with articles from an open API (Which unfortunately doesn't work because of their pricing [Read here](https://newsapi.org/pricing)).
+It is a simple, user-friendly app where you can interact with articles from an open API (Which unfortunately doesn't work because of their pricing [Read here](https://newsapi.org/pricing). So I did [backend part](https://github.com/YaroslavYarynych/VRB-test-task-api/tree/master)).
 
 ## Links:
 
@@ -20,6 +20,7 @@ It is a simple, user-friendly app where you can interact with articles from an o
 - TypeScript
 - React hook form
 - React toastify
+- Axious
 - Fontawesome
 - SASS
 
