@@ -25,6 +25,8 @@ It is a simple, user-friendly app where you can interact with articles from an o
 
 ## Screen Recording
 
+https://github.com/YaroslavYarynych/VRB-react-tech-task/assets/63805271/1ae43937-7f36-4f58-99f6-4cb21d106586
+
 ## Setup
 
 1. Use 20 version of node.js: <br>
