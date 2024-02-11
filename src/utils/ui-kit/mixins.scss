@@ -73,6 +73,7 @@
 }
 
 @mixin form-label {
+  pointer-events: none;
   position: absolute;
   display: block;
   transition: 0.2s;
