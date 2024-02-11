@@ -47,6 +47,13 @@ export const Input: React.FC<Props> = ({ data, value, register, errors }) => {
             value: +value,
             message: `Min length is ${value}`,
           },
+          pattern: {
+            value:
+              data === "image"
+                ? /(jpg|jpeg|gif|png)(\?+.*)?$/i
+                : /[a-zA-Z0-9.*]/,
+            message: data === "image" ? "Invalid url" : "Invalid input",
+          },
         })}
         type={data === "password" ? "password" : "text"}
         className="form__input"
@@ -54,7 +61,9 @@ export const Input: React.FC<Props> = ({ data, value, register, errors }) => {
         id={data}
         placeholder={`Add ${data} here`}
       />
-      {(error?.type === "required" || error?.type === "minLength") && (
+      {(error?.type === "required" ||
+        error?.type === "minLength" ||
+        error?.type === "pattern") && (
         <p role="alert">{String(error?.message)}</p>
       )}
       <label className="form__label" htmlFor="title">

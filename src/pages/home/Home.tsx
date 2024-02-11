@@ -9,6 +9,7 @@ import { SearchBar } from "./components/search-bar";
 import { LoadMoreBtn } from "./components/load-more-btn";
 import { Loader } from "../../components/loader";
 import "./home.scss";
+import { getFirst10Articles, getMoreArticles } from "../../utils/fetchClient";
 
 export const Home: React.FC = () => {
   const data = useSelector((state: RootState) => state.dataStore.article);
@@ -23,31 +24,27 @@ export const Home: React.FC = () => {
 
   useEffect(() => {
     if (!data.length) {
-      fetch(
-        "https://newsapi.org/v2/everything?domains=techcrunch.com&page=1&pageSize=10&apiKey=07bbb3b1f9c648cca7df57d1ebe6e7f6"
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.articles) {
-            dispatch(setData(data.articles));
-          } else {
-            dispatch(setData([]));
-          }
-        })
-        .catch((error) =>
-          console.log(`${error}! You have an error in fetching data`)
-        );
+      setTimeout(() => {
+        getFirst10Articles()
+          .then((res) => {
+            if (res.data.articles) {
+              console.log(res.data.articles);
+              dispatch(setData(res.data.articles));
+            } else {
+              dispatch(setData([]));
+            }
+          })
+          .catch((error) =>
+            console.log(`${error}! You have an error in fetching data`)
+          );
+      }, 2000);
     }
   }, []);
 
   const handleLoadMore = () => {
     setPage((current) => current + 1);
-
-    fetch(
-      `https://newsapi.org/v2/everything?domains=techcrunch.com&page=${page}&pageSize=10&apiKey=07bbb3b1f9c648cca7df57d1ebe6e7f6`
-    )
-      .then((data) => data.json())
-      .then((res) => dispatch(addArticles(res.articles)))
+    getMoreArticles(page)
+      .then((res) => dispatch(addArticles(res.data.articles)))
       .catch((error) =>
         console.log(`${error}! You have an error with loading data`)
       );

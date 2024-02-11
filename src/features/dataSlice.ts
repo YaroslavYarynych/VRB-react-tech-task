@@ -36,7 +36,6 @@ export const dataSlice = createSlice({
         state.article.push(entity);
       } else {
         const [entity] = state.article.splice(user, 1);
-        console.log(entity);
         state.article.unshift(entity);
       }
     },
