@@ -20,7 +20,7 @@ It is a simple, user-friendly app where you can interact with articles from an o
 - TypeScript
 - React hook form
 - React toastify
-- Axious
+- Axios
 - Fontawesome
 - SASS
 
